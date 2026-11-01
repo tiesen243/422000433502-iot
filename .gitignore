@@ -1,0 +1,28 @@
+# --- uv & Virtual Environments ---
+.venv/
+.python-version
+
+# --- Python Build & Distribution ---
+dist/
+build/
+wheels/
+*.egg-info/
+
+# --- Python Cache & Bytecode ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Environment Variables (Security) ---
+.env*
+!.env.example
+
+# --- IDEs and Tools ---
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.vscode/
+.idea/
+
