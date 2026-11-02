@@ -22,31 +22,19 @@ The program uses these Raspberry Pi GPIO pins:
 9, 25, 10, 24, 22, 23, 27, 17, 18, 15, 4, 14
 ```
 
-## Software requirements
-
-- Raspberry Pi OS
-- Python 3.14 or newer
-- [`uv`](https://docs.astral.sh/uv/)
-
-The required Python packages are declared in the root [`pyproject.toml`](../pyproject.toml).
-
-## Installation
-
-From the repository root on the Raspberry Pi 4:
-
-```bash
-git clone https://github.com/tiesen243/422000433502-iot.git
-cd 422000433502-iot
-uv sync
-```
-
 ## Run the lab
 
+From the repository root, run:
+
 ```bash
-uv run python lab_1/main.py
+uv run lab_1/main.py
 ```
 
 Press `Ctrl+C` to stop the program. The program turns all LEDs off before exiting.
+
+## Demo video
+
+[Watch the Lab 1 demo on YouTube](https://youtube.com/shorts/VE9_NN_tzi8)
 
 ## Files
 
