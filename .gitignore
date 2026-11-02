@@ -26,3 +26,6 @@ htmlcov/
 .vscode/
 .idea/
 
+# --- Kicad ---
+*.kicad_pcb-bak
+.history/
