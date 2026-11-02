@@ -8,18 +8,14 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "grove-py" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "micropython-unix-stubs" },
+    { name = "rpi-gpio" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "grove-py", specifier = ">=0.6" }]
-
-[package.metadata.requires-dev]
-dev = [{ name = "micropython-unix-stubs", specifier = ">=1.29.0.post1" }]
+requires-dist = [
+    { name = "grove-py", specifier = ">=0.6" },
+    { name = "rpi-gpio", specifier = ">=0.7.1" },
+]
 
 [[package]]
 name = "grove-py"
@@ -31,24 +27,10 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/d5/1c/4061c51ccc35471b210e83a76598a1f58198df6c46942917e0f320a9fa81/grove.py-0.6.tar.gz", hash = "sha256:0bd69ac8d30f2a4bdefa06e10df4dbd87bd018b79a7455643250ef26fb55b4a6", size = 40581, upload-time = "2018-11-22T10:24:27.999Z" }
 
 [[package]]
-name = "micropython-stdlib-stubs"
-version = "1.29.0.post2"
+name = "rpi-gpio"
+version = "0.7.1"
 source = { registry = "https://pypi.org/simple" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/3a/e6/3edc7601ecbfb1deaee29e7e8beadb7e2d4877b5ed4f71f0c6644bb7493d/micropython_stdlib_stubs-1.29.0.post2-py3-none-any.whl", hash = "sha256:bdcd54d9896d8e1d455b3a99995d82a8399e1e2c9cb94eacabe278e5c2397783", size = 154274, upload-time = "2026-08-31T11:34:33.329Z" },
-]
-
-[[package]]
-name = "micropython-unix-stubs"
-version = "1.29.0.post1"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "micropython-stdlib-stubs" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/08/c8/cf3e1a67cb20a7252d705208f4785b862b2702a2e72f3cc1383be0753c0c/micropython_unix_stubs-1.29.0.post1.tar.gz", hash = "sha256:784c5061fca3a27f8d778909866c0da35d88396844d936400fd2b7e38d1bf2b5", size = 50654, upload-time = "2026-08-30T14:55:01.327Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/52/61/300f3213a09e903ac9bbb9cbbc3597660ead5ae526c5357fb2c3f668a240/micropython_unix_stubs-1.29.0.post1-py2.py3-none-any.whl", hash = "sha256:77a5d926f2114c55cda7dcd1518019612f29989bf36aabd771f1f1a3d16310ab", size = 73770, upload-time = "2026-08-30T14:55:02.333Z" },
-]
+sdist = { url = "https://files.pythonhosted.org/packages/c4/0f/10b524a12b3445af1c607c27b2f5ed122ef55756e29942900e5c950735f2/RPi.GPIO-0.7.1.tar.gz", hash = "sha256:cd61c4b03c37b62bba4a5acfea9862749c33c618e0295e7e90aa4713fb373b70", size = 29090, upload-time = "2022-02-06T15:15:06.022Z" }
 
 [[package]]
 name = "smbus2"
