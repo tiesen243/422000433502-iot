@@ -34,7 +34,7 @@ Press `Ctrl+C` to stop the program. The program turns all LEDs off before exitin
 
 ## Demo video
 
-[Watch the Lab 1 demo on YouTube](https://youtube.com/shorts/VE9_NN_tzi8)
+[Watch the Lab 1 demo on YouTube](https://youtube.com/shorts/mSgqIN6EGqE)
 
 ## Files
 
