@@ -7,24 +7,63 @@ name = "422000433502-iot"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "grove-py" },
     { name = "rpi-gpio" },
+    { name = "seeed-grove-py" },
+    { name = "seeed-python-dht" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "grove-py", specifier = ">=0.6" },
     { name = "rpi-gpio", specifier = ">=0.7.1" },
+    { name = "seeed-grove-py", specifier = ">=0.8" },
+    { name = "seeed-python-dht", specifier = ">=0.0.2" },
 ]
 
 [[package]]
-name = "grove-py"
-version = "0.6"
+name = "bme680"
+version = "2.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "smbus2" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d5/1c/4061c51ccc35471b210e83a76598a1f58198df6c46942917e0f320a9fa81/grove.py-0.6.tar.gz", hash = "sha256:0bd69ac8d30f2a4bdefa06e10df4dbd87bd018b79a7455643250ef26fb55b4a6", size = 40581, upload-time = "2018-11-22T10:24:27.999Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4b/92/8ac453cac43f019387259a01e0f4e13c5917cc0925f077a32e308522a9ca/bme680-2.0.0.tar.gz", hash = "sha256:7395afd9bc95fc3d643cc873ad2f5c27d3c2d18ccf4771505124e0e2042c0d74", size = 80399, upload-time = "2024-05-10T10:51:39.584Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3a/19/8c926497c8be9fc65bbd09d3ab44cb5f78219defc5dbb57d606dd5e39444/bme680-2.0.0-py3-none-any.whl", hash = "sha256:1802bd5ba98354ebb9318185051c913e1a3c2f06771e8f91eb40e5838795e66e", size = 14360, upload-time = "2024-05-10T10:51:37.678Z" },
+]
+
+[[package]]
+name = "bmm150"
+version = "0.2.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "enum-tools" },
+    { name = "smbus2" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/9c/a1/c7938c1bdf75a50ba938fc52583b5be71e8819caca65151fcecd1f59881f/bmm150-0.2.2-py3-none-any.whl", hash = "sha256:9c2c531af60a9ab5a41c3ad892ae72100431c3554ff0ac395586ddad8935520b", size = 8468, upload-time = "2022-12-02T04:51:25.592Z" },
+]
+
+[[package]]
+name = "enum-tools"
+version = "0.9.0.post1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pygments" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/77/93/a9243f5ce62906d86eacce0fd1adb015fc565c054e47b58ff781d89818cb/enum_tools-0.9.0.post1.tar.gz", hash = "sha256:e59eb1c16667400b185f8a61ac427029919be2ec48b9ca04aa1b388a42fb14d5", size = 18718, upload-time = "2022-02-10T07:52:10.889Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a2/b3/b5608d203e4d4e896f65bd3973702ab77c90e332bfc783e968b5ac6f1a3f/enum_tools-0.9.0.post1-py3-none-any.whl", hash = "sha256:d8fd962054e7e400fa7f0a196f7607f19ef78aca4b288543ecb330f890edb60d", size = 61672, upload-time = "2022-02-10T07:52:09.73Z" },
+]
+
+[[package]]
+name = "pygments"
+version = "2.21.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz", hash = "sha256:610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c", size = 5005329, upload-time = "2026-08-17T08:02:48.824Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl", hash = "sha256:2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9", size = 1250147, upload-time = "2026-08-17T08:02:44.912Z" },
+]
 
 [[package]]
 name = "rpi-gpio"
@@ -33,10 +72,54 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/c4/0f/10b524a12b3445af1c607c27b2f5ed122ef55756e29942900e5c950735f2/RPi.GPIO-0.7.1.tar.gz", hash = "sha256:cd61c4b03c37b62bba4a5acfea9862749c33c618e0295e7e90aa4713fb373b70", size = 29090, upload-time = "2022-02-06T15:15:06.022Z" }
 
 [[package]]
-name = "smbus2"
-version = "0.6.1"
+name = "rpi-ws281x"
+version = "5.0.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/87/37/b3f7b501502c4915ba3819d1dc277bf3f5fae4a9d067caa4f502aaddd889/smbus2-0.6.1.tar.gz", hash = "sha256:2b043372abf8f6029a632c3aab36b641c5d5872b1cbad599fc68e17ac4fd90a5", size = 17274, upload-time = "2026-04-09T20:37:54.821Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c0/1e/642208a685c5e96d38323f42c75d9b24f95e2d1b8390dd104e04a712f29e/rpi_ws281x-5.0.0.tar.gz", hash = "sha256:00ce6db771436b778d0930245cf8ea2aae11008cc5fd67d57789c5422af3ee55", size = 64519, upload-time = "2023-05-16T12:04:22.463Z" }
+
+[[package]]
+name = "seeed-grove-py"
+version = "0.8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "bme680" },
+    { name = "bmm150" },
+    { name = "rpi-gpio" },
+    { name = "rpi-ws281x" },
+    { name = "sgp30" },
+    { name = "smbus2" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/26/58/70db47020012f829b3912bb21ef032dbf2aabcdfb7cf54675c1138699945/Seeed-grove.py-0.8.tar.gz", hash = "sha256:d34748ce6b2a11a85dd4d0a76361eea020771e19a931b0b86c0549f98f241673", size = 84791, upload-time = "2024-08-14T10:09:28.954Z" }
+
+[[package]]
+name = "seeed-python-dht"
+version = "0.0.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/52/5c/c439011dfd30ee4fdbf5e6d85c4734c0542ce51cae6fb99f0e4ca1a52618/seeed-python-dht-0.0.2.tar.gz", hash = "sha256:2ab59bcdb1ee60b53d55c8b1e57e833603bd3fe923e4fc93165dd4aa319bfc3d", size = 4039, upload-time = "2019-08-09T06:35:13.36Z" }
+
+[[package]]
+name = "sgp30"
+version = "0.1.6"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "smbus2" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/7e/c3/a41fbb8db2ceda7ddbb58e664c4b10046f4618f0d43e8f8d4e910473bbcb/sgp30-0.1.6.tar.gz", hash = "sha256:91bc4bface05839d2f6f81f1378a491bdde54de47f01733aa4645bb6da19dd53", size = 5681, upload-time = "2018-11-28T14:55:27.333Z" }
+
+[[package]]
+name = "smbus2"
+version = "0.4.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/98/17/9663936e52a348b3ad1c85e6ca6071d2abf00a5f64f2df50bec8dcca6e16/smbus2-0.4.3.tar.gz", hash = "sha256:36f2288a8e1a363cb7a7b2244ec98d880eb5a728a2494ac9c71e9de7bf6a803a", size = 16801, upload-time = "2023-08-25T19:55:24.099Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/96/f2/c78a68bd739ac8fc608747cff73a4db3b19f3135658ed4e64374f6425cbf/smbus2-0.6.1-py2.py3-none-any.whl", hash = "sha256:650feeb27ca0ed58b07db4c10201c2a662c41305b7bf6e5fab9d888056f48180", size = 11767, upload-time = "2026-04-09T20:37:53.728Z" },
+    { url = "https://files.pythonhosted.org/packages/d6/5b/3ada173f07b4ec9bfa03b779e59ecada48eb7cb1a29f51cfce70edce7f3f/smbus2-0.4.3-py2.py3-none-any.whl", hash = "sha256:a2fc29cfda4081ead2ed61ef2c4fc041d71dd40a8d917e85216f44786fca2d1d", size = 11553, upload-time = "2023-08-25T19:55:23.17Z" },
+]
+
+[[package]]
+name = "typing-extensions"
+version = "4.16.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz", hash = "sha256:dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5", size = 113555, upload-time = "2026-07-02T08:40:05.92Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl", hash = "sha256:481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8", size = 45571, upload-time = "2026-07-02T08:40:04.659Z" },
 ]
