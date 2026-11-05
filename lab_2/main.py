@@ -11,20 +11,20 @@ from seeed_dht import DHT
 # Devices
 # ------------
 
-dht = DHT("11", 12)
+dht = DHT("11", 12)  # PWM
 
 
-red = GPIO(16, GPIO.OUT)
-yellow = GPIO(18, GPIO.OUT)
-blue = GPIO(22, GPIO.OUT)
+red = GPIO(5, GPIO.OUT)  # D5
+yellow = GPIO(16, GPIO.OUT)  # D16
+blue = GPIO(18, GPIO.OUT)  # D18
 
-ultrasonic = GroveUltrasonicRanger(5)
+ultrasonic = GroveUltrasonicRanger(22)  # D22
 
 adc = ADC()
-LIGHT_PIN = 0
-ROTARY_PIN = 2
+LIGHT_PIN = 0  # A0
+ROTARY_PIN = 2  # A2
 
-lcd = JHD1802()
+lcd = JHD1802()  # I2C
 
 # ------------
 # Utils
