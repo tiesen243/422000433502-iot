@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="lab_3" id="0KILsK0-qFNIFr6oWfkC">
-    <mxGraphModel dx="2101" dy="1252" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1007" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -49,7 +49,7 @@
           </mxCell>
         </UserObject>
         <UserObject label="Đọc nhiệt độ và độ ẩm" plantUmlId="action_7" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Đọc nhiệt độ và độ ẩm" id="8fIjliHw3u78jsp4wHLM-134">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="146" x="345" y="1248" as="geometry" />
           </mxCell>
         </UserObject>
@@ -78,12 +78,12 @@
           </mxCell>
         </UserObject>
         <UserObject label="Chuyển dữ liệu sang kiểu float" plantUmlId="action_13" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Chuyển dữ liệu sang kiểu float" id="8fIjliHw3u78jsp4wHLM-138">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="197" x="156.5" y="1336" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Hiển thị nhiệt độ và độ ẩm hiện tại lên LCD" plantUmlId="action_14" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Hiển thị nhiệt độ và độ ẩm hiện tại lên LCD" id="8fIjliHw3u78jsp4wHLM-139">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="272" x="119" y="1390" as="geometry" />
           </mxCell>
         </UserObject>
@@ -96,7 +96,7 @@
           </mxCell>
         </UserObject>
         <UserObject label="Cộng dồn nhiệt độ và độ ẩm" plantUmlId="action_16" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Cộng dồn nhiệt độ và độ ẩm" id="8fIjliHw3u78jsp4wHLM-141">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="182" x="164" y="1444" as="geometry" />
           </mxCell>
         </UserObject>
@@ -109,7 +109,7 @@
           </mxCell>
         </UserObject>
         <UserObject label="Tăng biến đếm count" plantUmlId="action_18" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Tăng biến đếm count" id="8fIjliHw3u78jsp4wHLM-143">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="144" x="183" y="1498" as="geometry" />
           </mxCell>
         </UserObject>
@@ -143,12 +143,12 @@
           </mxCell>
         </UserObject>
         <UserObject label="Tính nhiệt độ trung bình" plantUmlId="action_24" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Tính nhiệt độ trung bình" id="8fIjliHw3u78jsp4wHLM-148">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="169" x="170.5" y="1600" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Tính độ ẩm trung bình" plantUmlId="action_25" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Tính độ ẩm trung bình" id="8fIjliHw3u78jsp4wHLM-149">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="157" x="176.5" y="1654" as="geometry" />
           </mxCell>
         </UserObject>
@@ -161,7 +161,7 @@
           </mxCell>
         </UserObject>
         <UserObject label="Hiển thị giá trị trung bình lên LCD" plantUmlId="action_27" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Hiển thị giá trị trung bình lên LCD" id="8fIjliHw3u78jsp4wHLM-151">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="228" x="141" y="1708" as="geometry" />
           </mxCell>
         </UserObject>
@@ -174,7 +174,7 @@
           </mxCell>
         </UserObject>
         <UserObject label="Gửi dữ liệu lên ThingSpeak" plantUmlId="action_29" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Gửi dữ liệu lên ThingSpeak" id="8fIjliHw3u78jsp4wHLM-153">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="175" x="167.5" y="1762" as="geometry" />
           </mxCell>
         </UserObject>
@@ -211,7 +211,7 @@
           </mxCell>
         </UserObject>
         <UserObject label="Thông báo gửi dữ liệu thành công" plantUmlId="action_36" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Thông báo gửi dữ liệu thành công" id="8fIjliHw3u78jsp4wHLM-158">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="216" x="42" y="1865" as="geometry" />
           </mxCell>
         </UserObject>
@@ -227,7 +227,7 @@
           </mxCell>
         </UserObject>
         <UserObject label="Thông báo lỗi gửi dữ liệu" plantUmlId="action_39" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Thông báo lỗi gửi dữ liệu" id="8fIjliHw3u78jsp4wHLM-160">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="164" x="278" y="1865" as="geometry" />
           </mxCell>
         </UserObject>
@@ -256,12 +256,12 @@
           </mxCell>
         </UserObject>
         <UserObject label="Đặt lại temp_sum, humi_sum, count" plantUmlId="action_45" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Đặt lại temp_sum, humi_sum, count" id="8fIjliHw3u78jsp4wHLM-164">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="228" x="141" y="1949" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Cập nhật last_avg_time" plantUmlId="action_47" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Cập nhật last_avg_time" id="8fIjliHw3u78jsp4wHLM-166">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="155" x="177.5" y="2003" as="geometry" />
           </mxCell>
         </UserObject>
@@ -295,7 +295,7 @@
           </mxCell>
         </UserObject>
         <UserObject label="Chờ 2 giây" plantUmlId="action_54" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Chờ 2 giây" id="8fIjliHw3u78jsp4wHLM-171">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="82" x="214" y="2101" as="geometry" />
           </mxCell>
         </UserObject>
@@ -311,12 +311,12 @@
           </mxCell>
         </UserObject>
         <UserObject label="Thông báo lỗi đọc cảm biến" plantUmlId="action_58" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Thông báo lỗi đọc cảm biến" id="8fIjliHw3u78jsp4wHLM-174">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="180" x="491" y="1336" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="Chờ 2 giây" plantUmlId="action_59" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Chờ 2 giây" id="8fIjliHw3u78jsp4wHLM-175">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="82" x="540" y="1390" as="geometry" />
           </mxCell>
         </UserObject>
@@ -377,7 +377,7 @@
           </mxCell>
         </UserObject>
         <UserObject label="Xóa nội dung LCD" plantUmlId="action_73" plantUmlBaseStyle="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" plantUmlBaseValue="Xóa nội dung LCD" id="8fIjliHw3u78jsp4wHLM-182">
-          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=1;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
+          <mxCell parent="8fIjliHw3u78jsp4wHLM-127" style="rounded=0;absoluteArcSize=1;arcSize=25;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=0.5;whiteSpace=wrap;fontSize=12;align=left;spacingLeft=8;" vertex="1">
             <mxGeometry height="34" width="124" x="356" y="2207" as="geometry" />
           </mxCell>
         </UserObject>
