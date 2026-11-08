@@ -25,6 +25,8 @@ adc = ADC()
 LIGHT_PIN = 0
 ROTARY_PIN = 2
 
+LOG_FILE = "log.csv"
+
 
 def send_data(temp: float, humi: float, light: float, distance: float) -> None:
     params = {
@@ -56,6 +58,10 @@ def main():
 
     temp_sum = humi_sum = light_sum = distance_sum = 0.0
     count = 0
+
+    with open(LOG_FILE, "w") as f:
+        f.write("timestamp,temp,humi,light,distance\n")
+        f.close()
 
     while time.monotonic() - start_time < DURATION:
         humi, temp = dht.read()
@@ -89,6 +95,12 @@ def main():
             avg_distance = distance_sum / count
 
             send_data(avg_temp, avg_humi, avg_light, avg_distance)
+            with open(LOG_FILE, "a") as f:
+                timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+                f.write(
+                    f"{timestamp},{avg_temp:.2f},{avg_humi:.2f},{avg_light:.2f},{avg_distance:.2f}\n"
+                )
+                f.close()
 
             temp_sum = humi_sum = light_sum = distance_sum = 0.0
             count = 0
