@@ -4,6 +4,7 @@ version = "0.1.0"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "python-dotenv>=1.2.4",
     "rpi-gpio>=0.7.1",
     "seeed-grove-py>=0.8",
     "seeed-python-dht>=0.0.2",
