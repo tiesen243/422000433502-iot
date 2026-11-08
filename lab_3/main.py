@@ -115,6 +115,10 @@ def send_data_mqtt(
 
 
 def main():
+    print(
+        f">> Starting data collection at {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}"
+    )
+
     client = create_mqtt_client()
 
     start_time = time.monotonic()
@@ -172,6 +176,10 @@ def main():
             last_avg_time = now
 
         time.sleep(INTERVAL)
+
+    print(
+        f">> Data collection finished at {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}"
+    )
 
 
 if __name__ == "__main__":
