@@ -95,7 +95,7 @@ def send_data_mqtt(
     distance: float,
 ) -> None:
     payload = (
-        f"field1={temp:.2f}&field2={humi:.2f}&field3={light:.2f}&field4={distance:.2f}"
+        f"field5={temp:.2f}&field6={humi:.2f}&field7={light:.2f}&field8={distance:.2f}"
     )
 
     if not client.is_connected():
