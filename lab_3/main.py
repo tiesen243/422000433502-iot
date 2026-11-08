@@ -63,13 +63,16 @@ def create_mqtt_client():
     return client
 
 
-def send_data(temp: float, humi: float, light: float, distance: float) -> None:
+def send_data(
+    temp: float, humi: float, light: float, distance: float, rotary: float
+) -> None:
     params = {
         "api_key": THING_SPEAK_API_KEY,
         "field1": temp,
         "field2": humi,
         "field3": light,
         "field4": distance,
+        "field5": rotary,
     }
 
     try:
@@ -78,7 +81,7 @@ def send_data(temp: float, humi: float, light: float, distance: float) -> None:
 
         if res.text.strip() != "0":
             print(
-                f">> Sent: T={temp:.2f}C, H={humi:.2f}%, L={light:.2f}, D={distance:.2f}cm"
+                f">> Sent: T={temp:.2f}C, H={humi:.2f}%, L={light:.2f}, D={distance:.2f}cm, R={rotary:.2f}V"
             )
         else:
             print(">> ThingSpeak update failed")
@@ -93,10 +96,9 @@ def send_data_mqtt(
     humi: float,
     light: float,
     distance: float,
+    rotary: float,
 ) -> None:
-    payload = (
-        f"field5={temp:.2f}&field6={humi:.2f}&field7={light:.2f}&field8={distance:.2f}"
-    )
+    payload = f"field1={temp:.2f}&field2={humi:.2f}&field3={light:.2f}&field4={distance:.2f}&field5={rotary:.2f}"
 
     if not client.is_connected():
         print(">> MQTT disconnected")
@@ -108,7 +110,7 @@ def send_data_mqtt(
         print(
             f">> Published: T={temp:.2f}C, "
             f"H={humi:.2f}%, L={light:.2f}, "
-            f"D={distance:.2f}cm"
+            f"D={distance:.2f}cm, R={rotary:.2f}V"
         )
     else:
         print(f">> MQTT publish failed: {result.rc}")
@@ -124,11 +126,11 @@ def main():
     start_time = time.monotonic()
     last_avg_time = start_time
 
-    temp_sum = humi_sum = light_sum = distance_sum = 0.0
+    temp_sum = humi_sum = light_sum = distance_sum = rotary_sum = 0.0
     count = 0
 
     with open(LOG_FILE, "w") as f:
-        f.write("timestamp,temp,humi,light,distance\n")
+        f.write("timestamp,temp,humi,light,distance,rotary\n")
         f.close()
 
     while time.monotonic() - start_time < DURATION:
@@ -141,6 +143,7 @@ def main():
 
         temp, humi = float(temp), float(humi)
         light = adc.read(LIGHT_PIN)
+        rotate = adc.read_voltage(ROTARY_PIN) / 1000
         distance = ultrasonic.get_distance()
 
         lcd.setCursor(0, 0)
@@ -152,6 +155,7 @@ def main():
         humi_sum += humi
         light_sum += light
         distance_sum += distance
+        rotary_sum += rotate
         count += 1
 
         now = time.monotonic()
@@ -161,17 +165,20 @@ def main():
             avg_humi = humi_sum / count
             avg_light = light_sum / count
             avg_distance = distance_sum / count
+            avg_rotary = rotary_sum / count
 
-            send_data(avg_temp, avg_humi, avg_light, avg_distance)
-            send_data_mqtt(client, avg_temp, avg_humi, avg_light, avg_distance)
+            send_data(avg_temp, avg_humi, avg_light, avg_distance, avg_rotary)
+            send_data_mqtt(
+                client, avg_temp, avg_humi, avg_light, avg_distance, avg_rotary
+            )
             with open(LOG_FILE, "a") as f:
                 timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
                 f.write(
-                    f"{timestamp},{avg_temp:.2f},{avg_humi:.2f},{avg_light:.2f},{avg_distance:.2f}\n"
+                    f"{timestamp},{avg_temp:.2f},{avg_humi:.2f},{avg_light:.2f},{avg_distance:.2f},{avg_rotary:.2f}\n"
                 )
                 f.close()
 
-            temp_sum = humi_sum = light_sum = distance_sum = 0.0
+            temp_sum = humi_sum = light_sum = distance_sum = rotary_sum = 0.0
             count = 0
             last_avg_time = now
 
