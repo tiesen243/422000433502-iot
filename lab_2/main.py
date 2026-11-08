@@ -25,9 +25,8 @@ yellow = GPIO(16, GPIO.OUT)
 blue = GPIO(18, GPIO.OUT)
 
 ultrasonic = GroveUltrasonicRanger(22)
-adc = ADC()
 lcd = JHD1802()
-
+adc = ADC()
 LIGHT_PIN = 0
 ROTARY_PIN = 2
 

@@ -3,7 +3,9 @@ import time
 
 import requests
 from dotenv import load_dotenv
+from grove.adc import ADC
 from grove.display.jhd1802 import JHD1802
+from grove.grove_ultrasonic_ranger import GroveUltrasonicRanger
 from seeed_dht import DHT
 
 load_dotenv()
@@ -16,14 +18,21 @@ AVG_INTERVAL = 20
 DURATION = 30 * 60
 
 dht = DHT("11", 12)
+
+ultrasonic = GroveUltrasonicRanger(22)
 lcd = JHD1802()
+adc = ADC()
+LIGHT_PIN = 0
+ROTARY_PIN = 2
 
 
-def send_data(temp: float, humi: float):
+def send_data(temp: float, humi: float, light: float, distance: float) -> None:
     params = {
         "api_key": API_KEY,
         "field1": temp,
         "field2": humi,
+        "field3": light,
+        "field4": distance,
     }
 
     try:
@@ -43,7 +52,7 @@ def main():
     start_time = time.monotonic()
     last_avg_time = start_time
 
-    temp_sum = humi_sum = 0.0
+    temp_sum = humi_sum = light_sum = distance_sum = 0.0
     count = 0
 
     while time.monotonic() - start_time < DURATION:
@@ -55,12 +64,18 @@ def main():
             continue
 
         temp, humi = float(temp), float(humi)
+        light = adc.read(LIGHT_PIN)
+        distance = ultrasonic.get_distance()
 
         lcd.setCursor(0, 0)
         lcd.write(f"T:{temp:.1f}C H:{humi:.1f}%")
+        lcd.setCursor(1, 0)
+        lcd.write(f"L:{light} D:{distance:.1f}cm")
 
         temp_sum += temp
         humi_sum += humi
+        light_sum += light
+        distance_sum += distance
         count += 1
 
         now = time.monotonic()
@@ -68,13 +83,12 @@ def main():
         if now - last_avg_time >= AVG_INTERVAL:
             avg_temp = temp_sum / count
             avg_humi = humi_sum / count
+            avg_light = light_sum / count
+            avg_distance = distance_sum / count
 
-            lcd.setCursor(1, 0)
-            lcd.write(f"AT:{avg_temp:.1f} AH:{avg_humi:.1f}")
+            send_data(avg_temp, avg_humi, avg_light, avg_distance)
 
-            send_data(avg_temp, avg_humi)
-
-            temp_sum = humi_sum = 0.0
+            temp_sum = humi_sum = light_sum = distance_sum = 0.0
             count = 0
             last_avg_time = now
 
