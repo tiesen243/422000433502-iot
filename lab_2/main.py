@@ -2,60 +2,115 @@ import sys
 import time
 
 from grove.adc import ADC
-from grove.display import JHD1802
+from grove.display.jhd1802 import JHD1802
 from grove.gpio import GPIO
 from grove.grove_ultrasonic_ranger import GroveUltrasonicRanger
 from seeed_dht import DHT
 
 # ------------
+# Configuration
+# ------------
+
+INTERVAL = 1
+EVENT_DURATION = 3
+
+# ------------
 # Devices
 # ------------
 
-dht = DHT("11", 12)  # PWM
+dht = DHT("11", 12)
 
+red = GPIO(5, GPIO.OUT)
+yellow = GPIO(16, GPIO.OUT)
+blue = GPIO(18, GPIO.OUT)
 
-red = GPIO(5, GPIO.OUT)  # D5
-yellow = GPIO(16, GPIO.OUT)  # D16
-blue = GPIO(18, GPIO.OUT)  # D18
-
-ultrasonic = GroveUltrasonicRanger(22)  # D22
-
+ultrasonic = GroveUltrasonicRanger(22)
 adc = ADC()
-LIGHT_PIN = 0  # A0
-ROTARY_PIN = 2  # A2
+lcd = JHD1802()
 
-lcd = JHD1802()  # I2C
+LIGHT_PIN = 0
+ROTARY_PIN = 2
+
+LEDS = [
+    ("RED", red, 40, 30, "Temp", "C"),
+    ("YELLOW", yellow, 70, 40, "Humi", "%"),
+    ("BLUE", blue, 2, 1, "Rotary", "V"),
+]
+
+# Cache initial LED states
+led_states = {name: bool(led.read()) for name, led, *_ in LEDS}
+
 
 # ------------
 # Utils
 # ------------
 
 
-def show_led_event(name, state, sensor_name, value):
+def lcd_write(first: str, second: str) -> None:
+    for row, text in enumerate((first, second)):
+        lcd.setCursor(row, 0)
+        lcd.write(str(text)[:16].ljust(16))
+
+
+def get_timestamp() -> str:
+    return time.strftime("%d/%m/%Y %H:%M:%S")
+
+
+def show_led_event(name: str, state: bool, sensor: str, value: str) -> None:
     status = "ON" if state else "OFF"
 
-    lcd_write(f"{name} LED: {status}", f"{sensor_name}: {value}")
+    lcd_write(f"{name} LED: {status}", f"{sensor}: {value}")
 
     print(f"[LED CHANGED] {name}: {status}")
-    print(f"{sensor_name}: {value}")
+    print(f"{sensor}: {value}")
 
-    time.sleep(3)
-
-
-def lcd_write(frist: str, second: str) -> None:
-    frist = str(frist)[:16].ljust(16)
-    second = str(second)[:16].ljust(16)
-
-    lcd.setCursor(0, 0)
-    lcd.write(frist)
-
-    lcd.setCursor(1, 0)
-    lcd.write(second)
+    time.sleep(EVENT_DURATION)
 
 
-def get_timestamp():
-    current = time.localtime()
-    return time.strftime("%d/%m/%Y %H:%M:%S", current)
+def update_leds(temperature: float, humidity: float, rotary: float):
+    values = {
+        "RED": temperature,
+        "YELLOW": humidity,
+        "BLUE": rotary,
+    }
+
+    events = []
+
+    for name, led, upper, lower, sensor, unit in LEDS:
+        value = values[name]
+        previous = led_states[name]
+
+        current = previous
+
+        if value > upper:
+            current = True
+        elif value < lower:
+            current = False
+
+        if current != previous:
+            led.write(int(current))
+            led_states[name] = current
+
+            events.append((name, current, sensor, f"{value:.2f}{unit}"))
+
+    return events
+
+
+def print_status(temperature, humidity, light, rotary, distance):
+    states = "/".join("ON" if led_states[name] else "OFF" for name, *_ in LEDS)
+
+    sys.stdout.write("\033[2J\033[H")
+    sys.stdout.flush()
+
+    print(f"""========== {get_timestamp()} ==========
+Temperature: {temperature:.2f}C
+Humidity   : {humidity:.2f}%
+Light      : {light}
+Rotary     : {rotary:.2f}V
+Distance   : {distance:.2f}cm
+Led R/Y/B  : {states}
+=========================================
+""")
 
 
 # ------------
@@ -66,44 +121,29 @@ def get_timestamp():
 def main():
     while True:
         humidity, temperature = dht.read()
+
         if humidity is None or temperature is None:
+            print(">> DHT read failed")
+            time.sleep(INTERVAL)
             continue
+
+        temperature = float(temperature)
+        humidity = float(humidity)
 
         light = adc.read(LIGHT_PIN)
         rotary = adc.read_voltage(ROTARY_PIN) / 1000
         distance = ultrasonic.get_distance()
 
-        leds = [
-            ("RED", red, temperature, 40, 30, "Temp", "C"),
-            ("YELLOW", yellow, humidity, 70, 40, "Humi", "%"),
-            ("BLUE", blue, rotary, 2, 1, "Rotary", "V"),
-        ]
+        events = update_leds(temperature, humidity, rotary)
 
-        events = []
-        for name, led, value, upper, lower, sensor, unit in leds:
-            previous = bool(led.read())
+        print_status(
+            temperature,
+            humidity,
+            light,
+            rotary,
+            distance,
+        )
 
-            if value > upper:
-                led.write(1)
-            elif value < lower:
-                led.write(0)
-
-            current = bool(led.read())
-
-            if previous != current:
-                events.append((name, current, sensor, f"{value:.2f}{unit}"))
-
-        sys.stdout.write("\033[2J\033[H")
-        sys.stdout.flush()
-
-        print(f"""========== {get_timestamp()} ==========
-Temperature: {temperature:.2f}C
-Humidity   : {humidity:.2f}%
-Light      : {light}
-Rotary     : {rotary:.2f}V
-Distance   : {distance:.2f}cm
-Led R/Y/B  : {"ON" if red.read() else "OFF"}/{"ON" if yellow.read() else "OFF"}/{"ON" if blue.read() else "OFF"}
-=========================================\n""")
         for event in events:
             show_led_event(*event)
 
@@ -112,16 +152,16 @@ Led R/Y/B  : {"ON" if red.read() else "OFF"}/{"ON" if yellow.read() else "OFF"}/
             f"L:{light} D:{distance:.2f}cm",
         )
 
-        time.sleep(1)
+        time.sleep(INTERVAL)
 
 
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        red.write(0)
-        yellow.write(0)
-        blue.write(0)
-        lcd_write("Program Stopped", "")
+        print("\n>> Program interrupted")
+    finally:
+        for _, led, *_ in LEDS:
+            led.write(0)
 
-        sys.exit(0)
+        lcd_write("Program Stopped", "")
