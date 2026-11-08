@@ -13,9 +13,9 @@ load_dotenv()
 API_KEY = os.getenv("THING_SPEAK_API_KEY")
 API_URL = "https://api.thingspeak.com/update"
 
-INTERVAL = 2
+INTERVAL = 1
 AVG_INTERVAL = 20
-DURATION = 30 * 60
+DURATION = 15 * 60
 
 dht = DHT("11", 12)
 
