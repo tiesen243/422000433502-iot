@@ -40,7 +40,9 @@ def send_data(temp: float, humi: float, light: float, distance: float) -> None:
         res.raise_for_status()
 
         if res.text.strip() != "0":
-            print(f">> Sent: T={temp:.2f}C, H={humi:.2f}%")
+            print(
+                f">> Sent: T={temp:.2f}C, H={humi:.2f}%, L={light:.2f}, D={distance:.2f}cm"
+            )
         else:
             print(">> ThingSpeak update failed")
 
