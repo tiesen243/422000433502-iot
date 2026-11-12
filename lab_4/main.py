@@ -1,11 +1,13 @@
 import os
 import time
+from urllib.parse import parse_qs
 
 import paho.mqtt.client as mqtt
 import requests
 from dotenv import load_dotenv
 from grove.adc import ADC
 from grove.display.jhd1802 import JHD1802
+from grove.gpio import GPIO
 from grove.grove_ultrasonic_ranger import GroveUltrasonicRanger
 from paho.mqtt.enums import CallbackAPIVersion
 from seeed_dht import DHT
@@ -30,7 +32,11 @@ MQTT_SUBSCRIBE_TOPIC = f"channels/{THING_SPEAK_MQTT_CHANNEL}/subscribe"
 
 INTERVAL = 1
 AVG_INTERVAL = 20
-DURATION = 15 * 60
+DURATION = 45 * 60
+
+red = GPIO(5, GPIO.OUT)  # D5
+yellow = GPIO(16, GPIO.OUT)  # D16
+blue = GPIO(18, GPIO.OUT)  # D18
 
 dht = DHT("11", 12)  # PWM
 
@@ -42,6 +48,13 @@ LIGHT_PIN = 0  # A0
 ROTARY_PIN = 2  # A2
 
 LOG_FILE = "log.csv"
+
+
+def set_led(led: GPIO, value: float, min: float, max: float):
+    if value > max:
+        led.write(1)
+    elif value < min:
+        led.write(0)
 
 
 def on_connect(client, userdata, flags, reason_code, properties):
@@ -58,6 +71,20 @@ def on_message(client, userdata, msg):
     try:
         payload = msg.payload.decode("utf-8")
         print(f">> MQTT message received: {payload}")
+
+        data = parse_qs(payload)
+        temp = float(data["field1"][0])
+        humi = float(data["field2"][0])
+        light = float(data["field3"][0])
+        distance = float(data["field4"][0])
+        rotary = float(data["field5"][0])
+
+        with open(LOG_FILE, "a") as f:
+            timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+            f.write(
+                f"{timestamp},{temp:.2f},{humi:.2f},{light:.2f},{distance:.2f},{rotary:.2f}\n"
+            )
+            f.close()
 
     except (ValueError, KeyError, IndexError) as e:
         print(f">> MQTT message processing error: {e}")
@@ -165,6 +192,10 @@ def main():
         rotate = adc.read_voltage(ROTARY_PIN) / 1000
         distance = ultrasonic.get_distance()
 
+        set_led(red, temp, 30, 40)
+        set_led(yellow, humi, 40, 70)
+        set_led(blue, rotate, 1, 2)
+
         lcd.setCursor(0, 0)
         lcd.write(f"T:{temp:.1f}C H:{humi:.1f}%")
         lcd.setCursor(1, 0)
@@ -190,12 +221,6 @@ def main():
             send_data_mqtt(
                 client, avg_temp, avg_humi, avg_light, avg_distance, avg_rotary
             )
-            with open(LOG_FILE, "a") as f:
-                timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-                f.write(
-                    f"{timestamp},{avg_temp:.2f},{avg_humi:.2f},{avg_light:.2f},{avg_distance:.2f},{avg_rotary:.2f}\n"
-                )
-                f.close()
 
             temp_sum = humi_sum = light_sum = distance_sum = rotary_sum = 0.0
             count = 0
