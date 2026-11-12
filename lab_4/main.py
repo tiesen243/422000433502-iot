@@ -79,11 +79,11 @@ def on_message(client, userdata, msg):
         light = float(data["field3"])
         distance = float(data["field4"])
         rotary = float(data["field5"])
+        created_at = data["created_at"]
 
         with open(LOG_FILE, "a") as f:
-            timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
             f.write(
-                f"{timestamp},{temp:.2f},{humi:.2f},{light:.2f},{distance:.2f},{rotary:.2f}\n"
+                f"{created_at},{temp:.2f},{humi:.2f},{light:.2f},{distance:.2f},{rotary:.2f}\n"
             )
             f.close()
 
