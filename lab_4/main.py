@@ -47,7 +47,7 @@ adc = ADC()
 LIGHT_PIN = 0  # A0
 ROTARY_PIN = 2  # A2
 
-LOG_FILE = "/temp/lab_4.csv"
+LOG_FILE = "/tmp/lab_4.csv"
 os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
 
