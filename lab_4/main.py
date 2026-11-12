@@ -1,6 +1,6 @@
+import json
 import os
 import time
-from urllib.parse import parse_qs
 
 import paho.mqtt.client as mqtt
 import requests
@@ -73,12 +73,12 @@ def on_message(client, userdata, msg):
         payload = msg.payload.decode("utf-8")
         print(f"<< MQTT message received: {payload}")
 
-        data = parse_qs(payload)
-        temp = float(data["field1"][0])
-        humi = float(data["field2"][0])
-        light = float(data["field3"][0])
-        distance = float(data["field4"][0])
-        rotary = float(data["field5"][0])
+        data = json.loads(payload)
+        temp = float(data["field1"])
+        humi = float(data["field2"])
+        light = float(data["field3"])
+        distance = float(data["field4"])
+        rotary = float(data["field5"])
 
         with open(LOG_FILE, "a") as f:
             timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
