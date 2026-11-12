@@ -202,6 +202,10 @@ def main():
         lcd.setCursor(1, 0)
         lcd.write(f"L:{light} D:{distance:.1f}cm")
 
+        print(f"""================={time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())}=================
+>> Readings: T={temp:.2f}C, H={humi:.2f}%, L={light}, D={distance:.2f}cm, R={rotate:.2f}V
+================================================""")
+
         temp_sum += temp
         humi_sum += humi
         light_sum += light
