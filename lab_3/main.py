@@ -36,7 +36,8 @@ adc = ADC()
 LIGHT_PIN = 0
 ROTARY_PIN = 2
 
-LOG_FILE = "log.csv"
+LOG_FILE = "/temp/lab_3.csv"
+os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
 
 def on_connect(client, userdata, flags, reason_code, properties):

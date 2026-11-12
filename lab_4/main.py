@@ -47,7 +47,8 @@ adc = ADC()
 LIGHT_PIN = 0  # A0
 ROTARY_PIN = 2  # A2
 
-LOG_FILE = "log.csv"
+LOG_FILE = "/temp/lab_4.csv"
+os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
 
 def set_led(led: GPIO, value: float, min: float, max: float):
@@ -70,7 +71,7 @@ def on_connect(client, userdata, flags, reason_code, properties):
 def on_message(client, userdata, msg):
     try:
         payload = msg.payload.decode("utf-8")
-        print(f">> MQTT message received: {payload}")
+        print(f"<< MQTT message received: {payload}")
 
         data = parse_qs(payload)
         temp = float(data["field1"][0])
@@ -87,7 +88,7 @@ def on_message(client, userdata, msg):
             f.close()
 
     except (ValueError, KeyError, IndexError) as e:
-        print(f">> MQTT message processing error: {e}")
+        print(f"<< MQTT message processing error: {e}")
 
 
 def create_mqtt_client():
