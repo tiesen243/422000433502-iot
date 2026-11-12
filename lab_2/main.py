@@ -1,4 +1,4 @@
-import sys
+import os
 import time
 
 from grove.adc import ADC
@@ -98,9 +98,7 @@ def update_leds(temperature: float, humidity: float, rotary: float):
 def print_status(temperature, humidity, light, rotary, distance):
     states = "/".join("ON" if led_states[name] else "OFF" for name, *_ in LEDS)
 
-    sys.stdout.write("\033[2J\033[H")
-    sys.stdout.flush()
-
+    os.system("clear")
     print(f"""========== {get_timestamp()} ==========
 Temperature: {temperature:.2f}C
 Humidity   : {humidity:.2f}%
